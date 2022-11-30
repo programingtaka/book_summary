@@ -20,8 +20,8 @@ body {
 }
 
 .childWrapper {
-    border: 1px solid black;
     padding: 10px;
+    border: 1px solid black;
 }
 
 .threadTitle {
@@ -45,12 +45,14 @@ section {
 section .nameArea {
     display: flex;
     align-items: center;
-    margin-bottom: -14px;
 }
 
 section .userName {
     color: green;
-    font-weight: 700;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-right: 10px;
+    font-size: 18px;
 }
 
 section .comment {
@@ -59,13 +61,9 @@ margin-left: 20px;
 }
 
 .summaryArea {
-    border: 1px solid black;
     margin-bottom: 20px;
 }
 
-.commentArea {
-    border: 1px solid black;
-}
 
 .formWrapper {
     padding: 16px;
@@ -80,4 +78,9 @@ margin-left: 20px;
 
 .commentTextArea input {
     width: 500px;
+}
+
+.errorMessage {
+    color: red;
+    font-weight: 500;
 }

@@ -2,28 +2,6 @@
 
 include_once("./app/database/connect.php");
 
-if(isset($_POST["submitButton"])){
-    $username = $_POST["username"];
-    echo $username;
-    $body1 = $_POST["body1"]; 
-    echo $body1;
-    $body2 = $_POST["body2"]; 
-    echo $body2;
-    $body3 = $_POST["body3"]; 
-    echo $body3;
-}
-
-$comment_array = array();
-
-//コメントデータをテーブルからしゅとくする
-$sql = "SELECT * FROM comment";
-$stmt = $pdo->prepare($sql);
-$stmt->execute();
-
-$comment_array = $stmt;
-
-var_dump($comment_array);
-
 ?>
 
 <!DOCTYPE html>
@@ -38,76 +16,11 @@ var_dump($comment_array);
 
 </head>
 <body>
-    <header>
-        <nav class="nav">
-            <a class="nav-link active" href="#">ロゴ</a>
-            <ul class="nav justify-content-end">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">投稿を追加する</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">新規登録する</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">ログイン</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">検索</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+    <?php include("app/parts/header.php"); ?>
 
-    <!-- スレッドエリア-->
-    <div class="threadWrapper">
-        <div class="childWrapper">
-            <div class="threadTitle">
-                <span>[本のタイトル]</span>
-                <h1>test</h1>
-            </div>
-            <section>
-                <article>
-                    <div class="wrapper">
-                        <div class="nameArea">
-                            <span>名前：</span>
-                            <p class="userName">Shincode</p>
-                            <time>2022/12/07</time>
-                        </div>
-                        <div class="summaryArea">
-                            <span>要約点：</span>
-                            <ol class="summary">
-                                <li>あいおうえお</li>
-                                <li>ra-men</li>
-                                <li>saasisu</li>
-                            </ol>
-                        </div>
-                        <div class="commentArea">
-                            <span>メモ：</span>
-                            <p class="comment">こめんとです</p>
-                        </div>
-                    </div>
-                </article>
-            </section>
-            <form class="formWrapper" method="POST">
-                <div class="form-group">
-                    <label for="nameLabel">名前：</label>
-                    <input type="text" name="username" class="form-control">
-                </div>
+    <?php include("app/parts/validation.php"); ?>
 
-                <div class="form-group">
-                    <label for="summaryLabel">要約点：</label>
-                    <input type="text" name="body1" class="form-control" placeholder="要約点1を入力してください">             
-                    <input type="text" name="body2" class="form-control" placeholder="要約点2を入力してください">
-                    <input type="text" name="body3" class="form-control" placeholder="要約点3を入力してください">
-                </div>
-                <div class="form-group">
-                    <label for="memoLabel">メモ：</label>
-                    <input type="text" class="form-control" placeholder="メモを入力してください">
-                </div>
-                <input type="submit" value="書き込む" name="submitButton">
-            </form>
-        </div>
-    </div>
+    <?php include("app/parts/thread.php"); ?>
 
 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
