@@ -2,6 +2,8 @@ body {
     background-color: rgb(231, 232, 228);
 }
 
+
+
 .title {
     text-align: center;
     font-size: 34px;
@@ -68,4 +70,14 @@ margin-left: 20px;
 .formWrapper {
     padding: 16px;
     margin-left: 20px;
+}
+
+.commentTextArea {
+    margin-top: 10px;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.commentTextArea input {
+    width: 500px;
 }
